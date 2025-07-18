@@ -29,6 +29,9 @@ public static class MauiProgram
         builder.Services.AddSingleton<ParcelList>();
         builder.Services.AddSingleton<ParcelListViewModel>();
         
+        builder.Services.AddSingleton<ParcelDetails>();
+        builder.Services.AddSingleton<ParcelDetailsViewModel>();
+        
         return builder.Build();
     }
 }
