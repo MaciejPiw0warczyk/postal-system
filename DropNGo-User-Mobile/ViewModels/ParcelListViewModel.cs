@@ -1,4 +1,6 @@
 using System.Text.Json;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DropNGo_Shared;
@@ -19,7 +21,6 @@ public partial class ParcelListViewModel : ObservableObject
     {
         using var client = new HttpClient();
         client.BaseAddress = new Uri("http://192.168.1.10:5112");
-        
 
         try
         {
@@ -29,7 +30,8 @@ public partial class ParcelListViewModel : ObservableObject
         }
         catch (Exception e)
         {
-            CommunityToolkit.Maui.Alerts.Toast.Make(e.Message);
+            var toast = Toast.Make(e.Message, ToastDuration.Long, 14);
+            toast.Show();
         }
         return Task.FromResult(new List<Parcel>());
     }
