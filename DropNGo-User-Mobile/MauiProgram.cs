@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DropNGo_User_Mobile.ViewModels;
+using DropNGo_User_Mobile.Views;
+using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
+
+
 
 namespace DropNGo_User_Mobile;
 
@@ -9,6 +14,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -19,6 +25,10 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
 
+
+        builder.Services.AddSingleton<ParcelList>();
+        builder.Services.AddSingleton<ParcelListViewModel>();
+        
         return builder.Build();
     }
 }

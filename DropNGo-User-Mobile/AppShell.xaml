@@ -4,11 +4,16 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:DropNGo_User_Mobile"
+    xmlns:pages="clr-namespace:DropNGo_User_Mobile.Views"
     Title="DropNGo_User_Mobile">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+    <ShellContent
+        Title="List"
+        ContentTemplate="{DataTemplate pages:ParcelList}"
+        Route="ParcelList"/>
 
 </Shell>
